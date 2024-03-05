@@ -6,7 +6,6 @@ class Solution(object):
         :rtype: List[List[int]]
         """
 
-
         res = []
         def backtrack(n, path):
             if sum(path) == target:
