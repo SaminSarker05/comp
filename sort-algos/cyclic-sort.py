@@ -1,6 +1,5 @@
 '''
-  @ used for arrays holding 1 to N values
-  @ if N in array just skip over
+  @ used for arrays holding [1 to N] values
   @ N = len of unsorted array
   @ O(n) runtime
 '''
@@ -14,7 +13,3 @@ def cyclic_sort(array):
     else:
       i += 1
   return array
-
-arr = [3, 2, 1]
-print(arr)
-print(cyclic_sort(arr))
