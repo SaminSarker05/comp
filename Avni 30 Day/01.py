@@ -1,32 +1,37 @@
 class Solution(object):
-    def twoSum(self, numbers, target):
+    def sortedSquares(self, nums):
         """
-        :type numbers: List[int]
-        :type target: int
+        :type nums: List[int]
         :rtype: List[int]
         """
 
-        # 0. incrementing left pointer can only increase total; decrementing
-        # right pointer can only decrease total; given since monotonic
+        # O(n) solution two pointers
+        n = len(nums)
+        res = [0] * n
+        l, r = 0, n - 1
+        i = n - 1
 
-        # Runtime: O(n)
+        nums = [j*j for j in nums]
+        # 1. list comprehension to square all elements
 
-        # 1. two pointers to store left and right positions in array
-        l, r = 0, len(numbers) - 1
-
-        # 2. while left is less than right
-        while l < r:
-            total = numbers[l] + numbers[r]
-            # 3. if total greater than target decrement r pointer
-            if total > target:
-                r -= 1
-            # 4. if smaller then increment l pointer
-            elif total < target:
+        while l <= r: # <= since can be identical
+            # 2. add in increasing order to res array
+            if nums[l] > nums[r]:
+                res[i] = nums[l]
                 l += 1
-            # 5. guarenteed answer
             else:
-                return [l+1, r + 1]
-        
-        return 
+                res[i] = nums[r]
+                r -= 1
+            i -= 1
 
+        return res
+
+
+
+        # TRIVIAL approach nlogn
+        for i in range(len(nums)):
+            nums[i] = nums[i] ** 2
+        
+        nums.sort() # sorting takes nlogn
+        return nums
         
