@@ -61,3 +61,21 @@ def dijkstra(graph, source):
         heapq.heappush(q, (new_dist, neighbor))
     
     return nodes
+
+
+"""
+  dijkstra(G, w, s):
+  Init(G, s)
+  S = nullset
+  Q = priority queue
+  while Q != nullset:
+    u = extractMin(Q)
+    S = S u {u}
+    for each outgoing edge e of u:
+      relax(e)
+
+
+suppose not. let u be the first vertex u.d > S(s,u)
+"""
+
+  
