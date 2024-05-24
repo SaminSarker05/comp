@@ -14,7 +14,6 @@ class Solution(object):
             else: l += 1
 
 """
-
 - use two pointers starting at left and right to compute running sum
 - move left/right pointers depending on comparison of running sum and target
 """
