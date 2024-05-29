@@ -9,7 +9,8 @@ class Solution(object):
         word_str = len(words) * word_len
         res = []
         for pos in range(word_len):
-            i = pos
+            i = posz
+            # counter is a dict subclass
             d = Counter(words) # dict for words required
             for j in range(i, len(s) + 1 - word_len, word_len):
                 word = s[j: j + word_len]
@@ -22,6 +23,7 @@ class Solution(object):
         return res
 
 """
+
 - use sliding window and hashmap
 - check if all words were met
 """
