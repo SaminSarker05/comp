@@ -16,11 +16,16 @@ class Solution(object):
         last = None
         node = prev.next
         # 1. reverse order of nodes left to right
-        for i in range(right-left):
+        for i in range(right-left + 1):
             hold = node.next
-            node.next = hold.next
-            hold.next = prev.next
-            prev.next = hold
+            node.next = last
+            last = node
+            node = hold
+        
+        prev.next.next = node # 2. node is now the last
+        prev.next = last # 3. last is now the first
     
         return dummy.next
+        
+        
         
