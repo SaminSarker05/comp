@@ -5,7 +5,7 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        # TOPOLOGICAL SORT
+        # TOPOLOGICAL SORT = good for prerequisite questions
         # kahns algorithm for DAG (directed acyclic graph)
         # sorts nodes such that prerequisite nodes appear before NOT UNIQUE
         # start with node where ndegree is 0 - no incoming nodes
