@@ -23,7 +23,7 @@ def unionfind(nodes, vertices):
     r1, r2 = find(n1), find(n2)
 
     # make root of one node the root of the other; combining the nodes
-    forest[n1] = r2
+    forest[r1] = r2
   
 
   # optimization for height balanced trees
