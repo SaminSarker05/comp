@@ -4,14 +4,10 @@ public:
         int x = 0;
 
         for (const std::string& s : operations) {
-            // implicit conversion of string literal to std::string
-            if (s == "++X" || s == "X++") {
-                x++;
-            } else {
-                x--;
-            }
+            // 2nd char can classify increment/decrement op
+            if (s[1] == '+') { x++; }
+            else { x--; }
         }
         return x;
     }
 };
-
