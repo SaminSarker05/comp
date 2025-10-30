@@ -1,30 +1,19 @@
-class Solution:
-    def minNumberOperations(self, target: List[int]) -> int:
-
-        # faster way to track ? subarrays ?
-        # DP ?
-        # 2d ? 
-
-        # scan array to find subarrays that need updates
-        next_val = 1
-        moves = 0
-        n = len(target)
-        curr = [0] * n
-
-        # TLE
-        while True:
-            moves += 1
-            flag = False
-            for i in range(n):
-                if target[i] - curr[i] >= 1:
-                    curr[i] += 1
-                    flag = True
-                elif flag:
-                    break
-            if curr == target:
-                break
-
-        return moves
-
-
+class Solution {
+public:
+    int minNumberOperations(vector<int>& target) {
+        int moves = 0;
+        std::vector<int> increments(target.size(), 0);
+        int prev = 0;
         
+        for (int i = 0; i < target.size(); i++) {
+            increments[i] = (target[i] - prev);
+            prev = target[i];
+        }
+        for (const int& v : increments) {
+            if (v > 0) { moves += v; }
+        }
+
+        return moves;
+    }
+};
+
