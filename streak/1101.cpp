@@ -1,28 +1,33 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-class Solution:
-    def modifiedList(self, nums: List[int], head: Optional[ListNode]) -> Optional[ListNode]:
-        nums = set(nums)
-        dummy = ListNode()
-        while head.val in nums:
-            head = head.next
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* modifiedList(vector<int>& nums, ListNode* head) {
+        std::set<int> store(nums.begin(), nums.end());
+        while (head && store.find(head->val) != store.end()) {
+            head = head->next;
+        }
+
+        ListNode* newhead = head;
+        ListNode* curr = head;
         
-        dummy.next = head
-        curr = dummy.next
+        while (curr) {
+            ListNode* nexth = curr->next;
+            while (nexth && store.find(nexth->val) != store.end()) {
+                nexth = nexth->next;
+            }
+            curr->next = nexth;
+            curr = nexth;
+        }
+        return newhead;
+    }
+};
 
-        while curr:
-            nexth = curr.next
-            print("--", curr.val)
-            while nexth and nexth.val in nums:
-                print("next", nexth.val)
-                nexth = nexth.next
-                print("after", nexth.val)
-            curr.nexth = nexth
-            curr = nexth
-
-        return dummy.next
-
-        
